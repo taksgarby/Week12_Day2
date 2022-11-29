@@ -20,9 +20,9 @@ public class LibraryTest {
         books.add(book2);
         books.add(book3);
 
+        int capacity = 4;
 
-
-        library = new Library(books);
+        library = new Library(books, capacity);
     }
 
     @Test
@@ -38,7 +38,16 @@ public class LibraryTest {
     }
 
     @Test
-    public boolean isCapacityFull() {
-        assertEquals(false, library.capacityCheck());
+    public void isCapacityFull() {
+        Book book4 = new Book("Nat 5 Maths", "Donnie Darko", "Reference");
+        library.addBook(book4);
+        assertEquals(true, library.fullCapacityCheck());
+    }
+
+    @Test
+    public void canRemoveBook() {
+        library.removeBook();
+        assertEquals(2, library.bookCount());
+
     }
 }

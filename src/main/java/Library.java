@@ -4,9 +4,11 @@ public class Library {
 
     private ArrayList<Book> books;
 
+    private int capacity;
 
-    public Library(ArrayList<Book> books) {
+    public Library(ArrayList<Book> books, int capacity) {
         this.books = books;
+        this.capacity = capacity;
 
     }
 
@@ -18,7 +20,14 @@ public class Library {
         books.add(newBook);
     }
 
-    public boolean capacityCheck() {
-        
+    public boolean fullCapacityCheck() {
+        if (this.capacity >= books.size()) {
+            return true;
+        }
+        return false;
+    }
+
+    public Book removeBook() {
+        return books.remove(0);
     }
 }
